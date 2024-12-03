@@ -1,0 +1,519 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    font-family: "BPG Arial Caps", sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+header {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: #3375B8;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-decoration: none;
+    text-shadow: 0px 0px 4.7px rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+.logo:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #3375B8;
+    animation: underline 2s ease infinite;
+}
+
+
+@keyframes underline {
+    0% {
+        width: 0%;
+        left: 0;
+    }
+
+    50% {
+        width: 100%;
+        left: 0;
+    }
+
+    100% {
+        width: 0%;
+        left: 100%;
+    }
+}
+
+.nav-menu ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-menu ul li {
+    margin-left: 1.5rem;
+}
+
+.nav-menu ul li a {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0px 4px 21.8px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+}
+
+.sign-in {
+    background: #6A7DD0;
+    color: white;
+}
+
+.sign-up {
+    background: #D06A6C;
+    color: white;
+}
+
+.nav-toggle,
+.nav-toggle-label {
+    display: none;
+}
+
+.hero {
+    background-image: url('https://collegeinfogeek.com/wp-content/uploads/2020/03/how-to-become-a-freelance-writer-featured.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    text-align: center;
+    padding: 5rem 1rem;
+    min-height: 100vh;
+    /* Make sure it fills the viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 10;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Adjust the opacity for desired darkness */
+    z-index: 1;
+    /* Ensures the overlay is below the text */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    /* Keeps text above the overlay */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #f0f0f0;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.work-btn,
+.hire-btn {
+    border-radius: 30px;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.work-btn {
+    background-color: #D06A6C;
+    color: white;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.work-btn:hover {
+    background-color: #e0747a;
+    box-shadow: 0 6px 20px rgba(208, 106, 108, 0.5);
+    transform: translateY(-3px) scale(1.05);
+}
+
+.hire-btn {
+    border: 2px solid white;
+    color: white;
+    background: transparent;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hire-btn:hover {
+    background-color: white;
+    color: #6A7DD0;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+
+    .nav-toggle-label {
+        display: block;
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+
+    .nav-toggle:checked~.nav-menu {
+        display: block;
+        position: absolute;
+        top: 10%;
+        left: 0;
+        width: 100%;
+        background: white;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        align-items: flex-start;
+        z-index: 9;
+        position: relative;
+    }
+
+    .nav-menu ul li {
+        margin: 1rem 5%;
+        width: 90%;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+.sections {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 150px;
+    margin-top: 102px;
+}
+
+.sections section {
+    background: #FFFFFF;
+    box-shadow: 0px 25px 202.7px -65px rgba(0, 0, 0, 0.25);
+    border-radius: 61px;
+    width: 100%;
+    max-width: 500px;
+    height: 213px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+    text-align: center;
+    animation: float 6s ease-in-out infinite;
+}
+
+.sections section:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.sections section:nth-child(3) {
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+section img {
+    width: 55px;
+}
+
+.sections section p {
+    width: 100%;
+    max-width: 409px;
+}
+
+h3 {
+    font-size: x-large;
+}
+
+.popular_categories {
+    width: 100%;
+    margin-top: 220px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popular_categories h2 {
+    text-align: center;
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 700px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.categories div {
+    box-sizing: border-box;
+    background: #F4F4F4;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 25px 153.2px -13px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-family: "BPG Arial Caps", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 29px;
+    color: #000000;
+    transition: all 0.3s ease;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.nav-menu ul li a:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.categories div:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0px 35px 163.2px -13px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content,
+.sections,
+.popular_categories {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+.sections {
+    animation-delay: 0.5s;
+}
+
+.popular_categories {
+    animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav-menu ul li a:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.categories div:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0px 35px 163.2px -13px rgba(0, 0, 0, 0.3);
+}
+
+footer {
+    background-color: #574767;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    top: 15vh;
+    border-radius: 46px 46px 0px 0px;
+    margin-top: auto;
+}
+
+.footer_sections {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    padding: 50px;
+    flex-wrap: wrap;
+    gap: 30px;
+    color: white;
+}
+
+h4 {
+    font-size: xx-large;
+}
+
+.footer_re-job {
+    text-align: center;
+}
+
+.footer_re-job p {
+    text-align: center;
+    width: 100%;
+    max-width: 350px;
+}
+
+.footer_links {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 900px;
+    flex-wrap: wrap;
+}
+
+.footer_links div ul li {
+    list-style: none;
+}
+
+.footer_links div {
+    gap: 20px;
+    display: grid;
+}
+
+.footer_links div ul li a {
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+
+.footer_links div h4 {
+    font-size: medium;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flash-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 9999;
+    animation: flash 3s forwards;
+}
+
+@keyframes flash {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
